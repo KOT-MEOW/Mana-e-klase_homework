@@ -17,29 +17,26 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "Teacher_table")
+@Table(name = "Children_Group_table")
 @Entity
-public class Teacher {
+public class ChildrenGroup {
 
+	
 	@Id
-	@Column(name = "Idt")
+	@Column(name = "Idgr")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
 	private int id;
 	
-	@Column(name = "Name")
+	@Column(name = "Title")
 	@NotNull
-	private String name;
+	private String title;
 	
-	@Column(name = "Surname")
+	@Column(name = "Year")
 	@NotNull
-	private String surname;
+	private int year;
 	
-	// connection to children group OneToMany
+	// id teacher ManyToOne
 	
-	public Teacher(String name, String surname) {
-		setName(name);
-		setSurname(surname);
-	}
 	
 }

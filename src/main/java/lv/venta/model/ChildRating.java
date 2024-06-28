@@ -18,31 +18,30 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "Children_Group_table")
+@Table(name = "Child_Rating_table")
 @Entity
-public class ChildrenGroup {
+public class ChildRating {
 
-	
 	@Id
-	@Column(name = "Idgr")
+	@Column(name = "Idrat")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
 	private int id;
 	
-	@Column(name = "Title")
+	@Column(name = "Evaluation_Title")
 	@NotNull
-	@Size(min= 3, max= 25)
-	private String title;
+	@Size(min= 3, max= 15)
+	private String evaluationTitle;
 	
-	@Column(name = "Year")
+	@Column
 	@NotNull
-	private int year;
+	RaitingValues value;
 	
-	// id teacher ManyToOne
+	// connection to child ManyToOne
 	
-	public ChildrenGroup(String title, int year) {
-		setTitle(title);
-		setYear(year);
+	ChildRating(String evaluationTitle, RaitingValues value){
+		setEvaluationTitle(evaluationTitle);
+		setValue(value);
 	}
 	
 }

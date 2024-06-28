@@ -7,6 +7,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,31 +19,39 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-@Table(name = "Children_Group_table")
+@Table(name = "Child_table")
 @Entity
-public class ChildrenGroup {
+public class Child {
 
-	
 	@Id
-	@Column(name = "Idgr")
+	@Column(name = "Idch")
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Setter(value = AccessLevel.NONE)
 	private int id;
 	
-	@Column(name = "Title")
+	@Column(name = "Allergies")
+	@Size(max= 30)
+	private String allergies;
+	
+	@Column(name = "Name")
 	@NotNull
-	@Size(min= 3, max= 25)
-	private String title;
+	@Size(min= 3, max= 15)
+	@Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Name data error")
+	private String name;
 	
-	@Column(name = "Year")
+	@Column(name = "Surname")
 	@NotNull
-	private int year;
+	@Size(min= 3, max= 20)
+	@Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Surname data error")
+	private String surname;
 	
-	// id teacher ManyToOne
+	// connection to ChildrenGroup ManyToOne
 	
-	public ChildrenGroup(String title, int year) {
-		setTitle(title);
-		setYear(year);
+	public Child(String allergies, String name, String surname) {
+		setAllergies(allergies);
+		setName(name);
+		setSurname(surname);
 	}
+	
 	
 }

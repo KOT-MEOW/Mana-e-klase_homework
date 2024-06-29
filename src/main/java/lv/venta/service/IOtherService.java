@@ -16,6 +16,6 @@ public interface IOtherService {
 	
 	public abstract ArrayList<Child> selectAllChildByAllergiesOLA() throws Exception;
 	
-	public abstract void insertChildRatingByChildId(int id) throws Exception;
+	public abstract void insertChildRatingByChildId(ChildRating childRating,int id) throws Exception;
 	
 }

@@ -3,11 +3,13 @@ package lv.venta.service.impl;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.model.Teacher;
 import lv.venta.repo.ITeacherRepo;
 import lv.venta.service.ITeacherCRUDService;
 
+@Service
 public class TeacherServiceImpl implements ITeacherCRUDService {
 	
 	@Autowired

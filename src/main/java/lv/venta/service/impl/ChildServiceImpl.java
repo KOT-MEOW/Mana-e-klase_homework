@@ -3,20 +3,22 @@ package lv.venta.service.impl;
 import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lv.venta.model.Child;
-import lv.venta.model.ChildrenGroup;
+//import lv.venta.model.ChildrenGroup;
 import lv.venta.repo.IChildRepo;
-import lv.venta.repo.IChildrenGroupRepo;
+//import lv.venta.repo.IChildrenGroupRepo;
 import lv.venta.service.IChildService;
 
+@Service
 public class ChildServiceImpl implements IChildService {
 	
 	@Autowired
 	private IChildRepo childRepo;
 	
-	@Autowired
-	private IChildrenGroupRepo childrenGroupRepo;
+//	@Autowired
+//	private IChildrenGroupRepo childrenGroupRepo;
 	
 	@Override
 	public ArrayList<Child> selectAllChildInGroupByGroupId(int id) throws Exception {

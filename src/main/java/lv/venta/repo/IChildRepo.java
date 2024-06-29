@@ -12,6 +12,10 @@ public interface IChildRepo extends CrudRepository<Child, Integer> {
 
 	Child findByNameAndSurnameAndChildrenGroupId(String name, String surname);
 
+	ArrayList<Child> findByChildrenGroupYear(int year);
+
+	ArrayList<Child> findByAllergiesIgnoreCase(String string);
+
 
 
 }

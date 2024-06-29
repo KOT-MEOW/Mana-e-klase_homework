@@ -1,10 +1,15 @@
 package lv.venta.model;
 
+import java.util.Collection;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
@@ -45,7 +50,15 @@ public class Child {
 	@Pattern(regexp = "[A-Z]{1}[a-z]+", message = "Surname data error")
 	private String surname;
 	
-	// connection to ChildrenGroup ManyToOne
+	// connection between Child and ChildrenGroup => ManyToOne
+	@ManyToOne
+	@JoinColumn(name = "Idchgr")
+	private ChildrenGroup childrenGroup;
+	
+	// connection between ChildRating and Child => OneToMany
+	@OneToMany(mappedBy = "child")
+	@ToString.Exclude
+	private Collection<ChildRating> childRatings;
 	
 	public Child(String allergies, String name, String surname) {
 		setAllergies(allergies);

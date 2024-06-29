@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -37,7 +39,10 @@ public class ChildRating {
 	@NotNull
 	RaitingValues value;
 	
-	// connection to child ManyToOne
+	// connection between Child and ChildRating => ManyToOne
+	@ManyToOne
+	@JoinColumn(name = "Idch")
+	private Child child;
 	
 	ChildRating(String evaluationTitle, RaitingValues value){
 		setEvaluationTitle(evaluationTitle);

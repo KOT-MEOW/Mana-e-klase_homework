@@ -1,0 +1,20 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+	
+	<p th:text="${msg}"></p>
+	<table border="1">
+		<tr>
+			<td><b>Id</b></td>
+			<td><b>Name</b></td>
+			<td><b>Surname</b></td>
+		</tr>
+		
+		<tr th:each="tempC : ${mydata}">
+			<td th:text="${tempC.getId()}"></td>
+			<td th:text="${tempC.getName()}"></td>
+			<td th:text="${tempC.getSurname()}"></td>
+		</tr>
+		
+	</table>
+</body>
+</html>

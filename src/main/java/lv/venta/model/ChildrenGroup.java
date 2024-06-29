@@ -53,9 +53,10 @@ public class ChildrenGroup {
 	@ToString.Exclude
 	private Collection<Child> childs;
 	
-	public ChildrenGroup(String title, int year) {
+	public ChildrenGroup(String title, int year, Teacher teacher) {
 		setTitle(title);
 		setYear(year);
+		setTeacher(teacher);
 	}
 	
 }

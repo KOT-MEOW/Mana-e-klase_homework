@@ -44,9 +44,10 @@ public class ChildRating {
 	@JoinColumn(name = "Idch")
 	private Child child;
 	
-	ChildRating(String evaluationTitle, RaitingValues value){
+	public ChildRating(String evaluationTitle, RaitingValues value, Child child){
 		setEvaluationTitle(evaluationTitle);
 		setValue(value);
+		setChild(child);
 	}
 	
 }

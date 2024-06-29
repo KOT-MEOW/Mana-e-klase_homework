@@ -60,10 +60,11 @@ public class Child {
 	@ToString.Exclude
 	private Collection<ChildRating> childRatings;
 	
-	public Child(String allergies, String name, String surname) {
+	public Child(String allergies, String name, String surname, ChildrenGroup childrenGroup) {
 		setAllergies(allergies);
 		setName(name);
 		setSurname(surname);
+		setChildrenGroup(childrenGroup);
 	}
 	
 	

@@ -6,4 +6,6 @@ import lv.venta.model.Teacher;
 
 public interface ITeacherRepo extends CrudRepository<Teacher, Integer> {
 
+	Teacher findByNameAndSurname(String name, String surname);
+
 }
